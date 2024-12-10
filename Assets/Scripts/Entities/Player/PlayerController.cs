@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(PlayerMovesController))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : Entity
 {
     // Start is called before the first frame update
     void Start()
