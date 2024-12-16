@@ -8,15 +8,17 @@ public class CanFall : MonoBehaviour
 {
     private Rigidbody2D rb;
     private bool isFalling = false;
+    private Entity ent;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        ent = GetComponent<Entity>();
     }
 
     public void fall()
     {
-        Debug.Log("Je tooooombe");
+        ent.Die();
         isFalling = true;
     }
 

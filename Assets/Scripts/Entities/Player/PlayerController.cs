@@ -6,15 +6,15 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMovesController))]
 public class PlayerController : Entity
 {
-    // Start is called before the first frame update
-    void Start()
+    GameManager gameManager;
+
+    private void Start()
     {
-        
+        gameManager = FindAnyObjectByType<GameManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Die()
     {
-        
+        gameManager.Lose();
     }
 }
