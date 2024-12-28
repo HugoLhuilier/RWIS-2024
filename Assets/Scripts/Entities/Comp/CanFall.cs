@@ -37,7 +37,7 @@ public class CanFall : MonoBehaviour
 
             float frac = 1 - timeSinceFall / fallingTime;
             transform.localScale = frac * Vector3.one;
-            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.a, frac);
+            spriteRenderer.color = frac * Color.white;
 
             rb.velocity = Mathf.Clamp01(1 - timeSinceFall / stoppingTime) * finalVel;
         }
