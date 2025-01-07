@@ -4,11 +4,9 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent (typeof(PausingObject))]
 
-public class Entity : MonoBehaviour
+public abstract class Entity : MonoBehaviour
 {
-    public virtual void Die()
-    {
-
-    }
+    public abstract void Die();
 }
