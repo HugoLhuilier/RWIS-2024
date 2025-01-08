@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 771768709229401155}
   - component: {fileID: 5203913437752932973}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Spotlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 5891241045775190498}
   - component: {fileID: 4670800735862091650}
   - component: {fileID: 9107107324917482983}
+  - component: {fileID: 6925646341613773392}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -310,6 +311,18 @@ Animator:
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &9107107324917482983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5593384639980910333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36090a8f16960b146b801cf313c90a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6925646341613773392
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

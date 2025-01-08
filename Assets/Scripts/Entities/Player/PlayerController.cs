@@ -17,4 +17,11 @@ public class PlayerController : Entity
     {
         gameManager.Lose();
     }
+
+    public void getHit()
+    {
+        // TODO: play the animation and then die
+
+        Die();
+    }
 }
