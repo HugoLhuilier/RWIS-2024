@@ -30,6 +30,9 @@ public class EnemyStateController : MonoBehaviour
 
     public Transform player {  get; private set; }
 
+    Animator anim; //for animation
+    private Vector2 lastMoveDirection;
+
     private void Start()
     {
         currentState = idleState;
@@ -43,12 +46,17 @@ public class EnemyStateController : MonoBehaviour
         agent.updateUpAxis = false;
 
         currentState.EnterState(this);
+
+
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
         if (!isPaused)
             currentState.UpdateState(this);
+
+        Animate();
     }
 
     public void SwitchState(BaseState state)
@@ -77,4 +85,26 @@ public class EnemyStateController : MonoBehaviour
     {
         isPaused = false;
     }
+
+
+    void Animate()
+    {
+        if (agent.velocity.magnitude > 0.1)
+        {
+            // Moving: Update animation to reflect direction and movement
+            anim.SetFloat("SkMoveX", agent.velocity.x);
+            anim.SetFloat("SkMoveY", agent.velocity.y);
+            anim.SetFloat("SkMoveMagnitude", agent.velocity.magnitude);
+
+            // Store the last move direction for idle state
+            lastMoveDirection = agent.velocity;
+        }
+        else
+        {
+            // Idle: Ensure "LastMoveX" and "LastMoveY" are set
+            anim.SetFloat("SkLastMoveX", lastMoveDirection.x);
+            anim.SetFloat("SkLastMoveY", lastMoveDirection.y);
+        }
+    }
 }
+
