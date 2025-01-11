@@ -24,8 +24,6 @@ public class PlayerPause : PausingObject
 
     protected override void OnPause()
     {
-        Debug.Log("Player paused");
-
         rbInfos.vel = rb.velocity;
         rbInfos.angVel = rb.angularVelocity;
 
@@ -37,8 +35,6 @@ public class PlayerPause : PausingObject
 
     protected override void OnResume()
     {
-        Debug.Log("Player resumed");
-
         rb.simulated = true;
 
         rb.velocity = rbInfos.vel;

@@ -10,6 +10,8 @@ public class AttackState : BaseState
 
     public override void EnterState(EnemyStateController stateController)
     {
+        //Debug.Log("Entering Attack state");
+
         timer = 0;
         attackTriggered = false;
         playerPosAtAttackTrigger = stateController.player.position;
@@ -30,10 +32,18 @@ public class AttackState : BaseState
                 stateController.range,
                 LayerMask.GetMask("Player"));
 
-            PlayerController player = hit.collider.GetComponent<PlayerController>();
+/*            Debug.DrawLine(stateController.transform.position,
+                stateController.transform.position + (playerPosAtAttackTrigger - stateController.transform.position) * stateController.range,
+                Color.green,
+                1f);*/
 
-            if (player != null){
-                player.getHit();
+            if (hit.collider)
+            {
+                PlayerController player = hit.collider.GetComponent<PlayerController>();
+
+                if (player){
+                    player.getHit();
+                }
             }
 
             attackTriggered = true;

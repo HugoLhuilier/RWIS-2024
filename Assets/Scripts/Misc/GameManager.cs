@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject loseScreen;
     [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private RoomManager firstRoom;
 
     private Timer timer;
 
@@ -25,6 +26,16 @@ public class GameManager : MonoBehaviour
         timer = GetComponent<Timer>();
 
         Time.timeScale = 1.0f;
+
+        RoomManager[] rooms = FindObjectsOfType<RoomManager>();
+
+        foreach (RoomManager room in rooms)
+        {
+            if (room == firstRoom)
+                firstRoom.activateRoom();
+            else 
+                room.deactivateRoom();
+        }
 
         StartGame();
     }

@@ -30,7 +30,7 @@ public class EnemyStateController : MonoBehaviour
 
     public Transform player {  get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         currentState = idleState;
         if (startByFollowing)

@@ -7,6 +7,10 @@ using UnityEngine;
 public class Switcher : MonoBehaviour
 {
     [SerializeField] private Transform tpTo;
+    [SerializeField] private Switcher otherTp;
+    [SerializeField] private RoomManager currentRoom;
+    public RoomManager getCurrentRoom() {  return currentRoom; }
+
     [SerializeField] private float teleportationTime = 1.0f;
     [SerializeField] private float stopTime = 0.5f;
 
@@ -21,6 +25,8 @@ public class Switcher : MonoBehaviour
 
     private IEnumerator TeleportCoroutine()
     {
+        currentRoom.deactivateRoom();
+
         // Wait for stopTime seconds
         yield return new WaitForSecondsRealtime(stopTime);
 
@@ -37,6 +43,8 @@ public class Switcher : MonoBehaviour
 
         // Wait for stopTime other seconds
         yield return new WaitForSecondsRealtime(stopTime);
+
+        otherTp.getCurrentRoom().activateRoom();
 
         gameManager.ResumeTime();
     }
