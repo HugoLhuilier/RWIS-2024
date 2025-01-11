@@ -6,6 +6,9 @@ public class IdleState : BaseState
 {
     public override void EnterState(EnemyStateController stateController)
     {
+        //Debug.Log("Entering Idle state");
+
+
         // Nothing
     }
 

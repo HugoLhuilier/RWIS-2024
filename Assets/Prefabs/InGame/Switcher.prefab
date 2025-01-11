@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tpTo: {fileID: 4032185661793953693}
+  otherTp: {fileID: 5536820912198913724}
+  currentRoom: {fileID: 0}
   teleportationTime: 0.5
   stopTime: 0.25
 --- !u!61 &5733791509231112363
@@ -236,6 +238,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tpTo: {fileID: 2402765573152919622}
+  otherTp: {fileID: 6071745374932200899}
+  currentRoom: {fileID: 0}
   teleportationTime: 0.5
   stopTime: 0.25
 --- !u!61 &3981636223350190540

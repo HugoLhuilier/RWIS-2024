@@ -13,6 +13,12 @@ public class PlayerController : Entity
         gameManager = FindAnyObjectByType<GameManager>();
     }
 
+/*    private void Update()
+    {
+        Debug.DrawRay(Vector3.zero,
+            transform.position);
+    }*/
+
     public override void Die()
     {
         gameManager.Lose();

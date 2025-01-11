@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 7312207850191709116}
   - component: {fileID: 5806384861420266652}
   - component: {fileID: 2492021507501462966}
-  - component: {fileID: 7261981102214310038}
   - component: {fileID: 3642233453046631493}
   - component: {fileID: 7788881695416401518}
   - component: {fileID: 1166944794985489916}
+  - component: {fileID: 8433836827913844766}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Untagged
@@ -124,33 +124,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!50 &7261981102214310038
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5029385266418200931}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!195 &3642233453046631493
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -201,5 +174,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6da51f6bf41b5d34fab3863ddb998767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8433836827913844766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029385266418200931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7523cc0bb6d90f48a5a91c40d92f8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
