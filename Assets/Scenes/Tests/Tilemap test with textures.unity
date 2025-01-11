@@ -9668,7 +9668,7 @@ MonoBehaviour:
   winScreen: {fileID: 1841785590}
   loseScreen: {fileID: 1068895404}
   timerText: {fileID: 11691102}
-  firstRoom: {fileID: 0}
+  firstRoom: {fileID: 1684222401}
   pauseTime:
     m_PersistentCalls:
       m_Calls: []
