@@ -11,6 +11,8 @@ public class PlayerMovesController : MonoBehaviour
     private GyroscopeReader gyr;
     private Vector2 input;
 
+    public bool canMove {  get; set; }
+
     Animator anim;
     private Vector2 lastMoveDirection;
     private bool facingLeft = true;
@@ -20,6 +22,8 @@ public class PlayerMovesController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         gyr = GetComponent<GyroscopeReader>();
         anim = GetComponent<Animator>();
+
+        canMove = true;
     }
 
     void Update()
@@ -36,7 +40,9 @@ public class PlayerMovesController : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 tilt = gyr.getTilt();
-        rb.AddForce(maxForce * tilt);
+
+        if (canMove)
+            rb.AddForce(maxForce * tilt);
     }
 
     void ProcessInputs()

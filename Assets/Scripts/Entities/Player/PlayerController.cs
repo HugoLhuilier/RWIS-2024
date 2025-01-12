@@ -8,9 +8,14 @@ public class PlayerController : Entity
 {
     GameManager gameManager;
 
+    private PlayerMovesController move;
+    private Animator animator;
+
     private void Start()
     {
         gameManager = FindAnyObjectByType<GameManager>();
+        animator = GetComponent<Animator>();
+        move = GetComponent<PlayerMovesController>();
     }
 
 /*    private void Update()
@@ -26,8 +31,13 @@ public class PlayerController : Entity
 
     public void getHit()
     {
-        // TODO: play the animation and then die
+        animator.SetTrigger("Die");
+        move.canMove = false;
 
-        Die();
+        RoomManager[] rooms = FindObjectsOfType<RoomManager>();
+        foreach (RoomManager room in rooms)
+        {
+            room.deactivateRoom();
+        }
     }
 }
