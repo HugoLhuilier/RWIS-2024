@@ -9,7 +9,7 @@ public abstract class RoomActivableObject : MonoBehaviour
     {
         RoomManager man = GetComponentInParent<RoomManager>();
 
-        Debug.Log(gameObject.ToString() + " listeners added");
+        //Debug.Log(gameObject.ToString() + " listeners added");
 
         man.activateRoomEvent.AddListener(onRoomActivate);
         man.deactivateRoomEvent.AddListener(onRoomDeactivate);

@@ -8,12 +8,13 @@ using TMPro;
 [RequireComponent(typeof(Timer))]
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject winScreen;
-    [SerializeField] private GameObject loseScreen;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private RoomManager firstRoom;
 
+    [SerializeField] private AudioClip backgroundMusic;
+
     private Timer timer;
+    private UIController ui;
 
     public UnityEvent pauseTime;
     public UnityEvent resumeTime;
@@ -24,18 +25,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         timer = GetComponent<Timer>();
-
-        Time.timeScale = 1.0f;
-
-        RoomManager[] rooms = FindObjectsOfType<RoomManager>();
-
-        foreach (RoomManager room in rooms)
-        {
-            if (room == firstRoom)
-                firstRoom.activateRoom();
-            else 
-                room.deactivateRoom();
-        }
+        ui = FindAnyObjectByType<UIController>();
 
         StartGame();
     }
@@ -49,14 +39,16 @@ public class GameManager : MonoBehaviour
     {
         timer.stopTimer();
         Time.timeScale = 0;
-        winScreen.SetActive(true);
+
+        ui.showWinScreen();
     }
 
     public void Lose()
     {
         timer.stopTimer();
         Time.timeScale = 0;
-        loseScreen.SetActive(true);
+
+        ui.showLoseScreen();
     }
 
     public void Restart()
@@ -66,6 +58,18 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        Time.timeScale = 1.0f;
+
+        RoomManager[] rooms = FindObjectsOfType<RoomManager>();
+
+        foreach (RoomManager room in rooms)
+        {
+            if (room == firstRoom)
+                firstRoom.activateRoom();
+            else
+                room.deactivateRoom();
+        }
+
         timer.startTimer();
     }
 

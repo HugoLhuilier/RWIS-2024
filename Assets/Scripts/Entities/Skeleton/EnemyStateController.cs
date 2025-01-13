@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemyStateController : MonoBehaviour
 {
     private BaseState currentState;
+    private BaseState stateBeforePause;
     private bool isPaused = false;
     [SerializeField] private bool startByFollowing = false; // Debug only
 
@@ -70,11 +71,17 @@ public class EnemyStateController : MonoBehaviour
 
     public void PauseStateMachine()
     {
+        stateBeforePause = currentState;
+        SwitchState(idleState);
+
         isPaused = true;
     }
 
     public void ResumeStateMachine()
     {
+        SwitchState(stateBeforePause);
+        stateBeforePause = null;
+
         isPaused = false;
     }
 }

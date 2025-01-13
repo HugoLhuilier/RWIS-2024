@@ -17,13 +17,13 @@ public class SkeletonRoomActivation : RoomActivableObject
     {
         enemyStateController.SwitchState(enemyStateController.followState);
 
-        Debug.Log("Skeleton " + this.ToString() + " activated");
+        //Debug.Log("Skeleton " + this.ToString() + " activated");
     }
 
     protected override void onRoomDeactivate()
     {
         enemyStateController.SwitchState(enemyStateController.idleState);
 
-        Debug.Log("Skeleton " + this.ToString() + " deactivated");
+        //Debug.Log("Skeleton " + this.ToString() + " deactivated");
     }
 }

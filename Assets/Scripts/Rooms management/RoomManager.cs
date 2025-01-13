@@ -10,14 +10,14 @@ public class RoomManager : MonoBehaviour
 
     public void activateRoom()
     {
-        Debug.Log(this.ToString() + " activated");
+        //Debug.Log(this.ToString() + " activated");
 
         activateRoomEvent.Invoke();
     }
 
     public void deactivateRoom()
     {
-        Debug.Log(this.ToString() + " deactivated");
+        //Debug.Log(this.ToString() + " deactivated");
 
         deactivateRoomEvent.Invoke();
     }
