@@ -7,9 +7,15 @@ using UnityEngine;
 public class Switcher : MonoBehaviour
 {
     [SerializeField] private Transform tpTo;
+    public Transform getTpTo() { return tpTo; }
+    public void setTpTo(Transform newTp) { tpTo = newTp; }
+
     [SerializeField] private Switcher otherTp;
+    public Switcher getOtherSwitcher() { return otherTp; }
+
     [SerializeField] private RoomManager currentRoom;
     public RoomManager getCurrentRoom() {  return currentRoom; }
+    public void setCurrentRoom(RoomManager newCur) { currentRoom = newCur; }
 
     [SerializeField] private float teleportationTime = 1.0f;
     [SerializeField] private float stopTime = 0.5f;

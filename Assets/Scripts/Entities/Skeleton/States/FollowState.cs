@@ -6,7 +6,7 @@ public class FollowState : BaseState
 {
     public override void EnterState(EnemyStateController stateController)
     {
-        //Debug.Log("Entering Follow state");
+        Debug.Log("Entering Follow state");
 
         stateController.agent.SetDestination(stateController.player.position);
     }
