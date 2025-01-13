@@ -50,9 +50,10 @@ public class Switcher : MonoBehaviour
         // Wait for stopTime other seconds
         yield return new WaitForSecondsRealtime(stopTime);
 
-        otherTp.getCurrentRoom().activateRoom();
-
+        gameManager.NextRoom();
         gameManager.ResumeTime();
+
+        otherTp.getCurrentRoom().activateRoom();
     }
 
     private void startTeleportation()

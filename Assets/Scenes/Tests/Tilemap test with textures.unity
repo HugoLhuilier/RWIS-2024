@@ -9527,10 +9527,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1eacb4849dc434291d8eb63f9298bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winScreen: {fileID: 1841785590}
-  loseScreen: {fileID: 1068895404}
   timerText: {fileID: 11691102}
-  firstRoom: {fileID: 1684222401}
+  finalTimeText: {fileID: 0}
+  curRoomText: {fileID: 0}
+  numberOfRooms: 10
+  difficultyPower: 2
+  allRooms: []
+  torchPrefab: {fileID: 0}
+  lampPrefab: {fileID: 0}
+  skeletonPrefab: {fileID: 0}
+  switcherPrefab: {fileID: 0}
+  finishPrefab: {fileID: 0}
   pauseTime:
     m_PersistentCalls:
       m_Calls: []
@@ -9829,6 +9836,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7788881695416401518, guid: 695f1a5892d9898449ae5ef8f36d782b, type: 3}
+      propertyPath: startByFollowing
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9909,7 +9920,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1192768383
-  m_SortingLayer: -1
+  m_SortingLayer: -4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -13470,6 +13481,11 @@ MonoBehaviour:
   deactivateRoomEvent:
     m_PersistentCalls:
       m_Calls: []
+  torchesSpotsParent: {fileID: 0}
+  lampsSpotsParent: {fileID: 0}
+  enemySpawnSpotsParent: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  exitPoint: {fileID: 0}
 --- !u!4 &1684222402
 Transform:
   m_ObjectHideFlags: 0
@@ -13558,7 +13574,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1192768383
-  m_SortingLayer: -1
+  m_SortingLayer: -4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -27738,6 +27754,11 @@ MonoBehaviour:
   deactivateRoomEvent:
     m_PersistentCalls:
       m_Calls: []
+  torchesSpotsParent: {fileID: 0}
+  lampsSpotsParent: {fileID: 0}
+  enemySpawnSpotsParent: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  exitPoint: {fileID: 0}
 --- !u!1001 &2114169978
 PrefabInstance:
   m_ObjectHideFlags: 0

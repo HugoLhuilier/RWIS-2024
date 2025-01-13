@@ -15,6 +15,8 @@ public class AttackState : BaseState
         timer = 0;
         attackTriggered = false;
         playerPosAtAttackTrigger = stateController.player.position;
+
+        stateController.anim.SetTrigger("Attacks");
     }
 
     public override void ExitState(EnemyStateController stateController)

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -55,6 +54,11 @@ public class UIController : MonoBehaviour
         {
             uIs.SetActive(false);
         }
+    }
+
+    public void displayInGameUI()
+    {
+        inGameUI.SetActive(true);
     }
 
     public void PauseGame()

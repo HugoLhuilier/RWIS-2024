@@ -31,7 +31,7 @@ public class EnemyStateController : MonoBehaviour
 
     public Transform player {  get; private set; }
 
-    Animator anim; //for animation
+    public Animator anim { get; private set; } //for animation
     private Vector2 lastMoveDirection;
 
     private void Awake()
@@ -80,6 +80,7 @@ public class EnemyStateController : MonoBehaviour
     public void PauseStateMachine()
     {
         stateBeforePause = currentState;
+
         SwitchState(idleState);
 
         isPaused = true;

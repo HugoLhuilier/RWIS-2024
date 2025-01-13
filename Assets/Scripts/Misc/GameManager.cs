@@ -9,10 +9,16 @@ using System.Runtime.CompilerServices;
 [RequireComponent(typeof(Timer))]
 public class GameManager : MonoBehaviour
 {
+    private const string MAIN_MENU = "MainMenu";
+
     [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private TextMeshProUGUI finalTimeText;
+    [SerializeField] private TextMeshProUGUI curRoomText;
     private RoomManager firstRoom;
 
     [SerializeField] private int numberOfRooms = 10;
+    private int curRoom = 1;
+
     [SerializeField] private float difficultyPower = 2;
 
     [SerializeField] RoomManager[] allRooms;
@@ -48,13 +54,15 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        //timerText.text = timer.getTime().ToString();
+        timerText.text = timer.getTime().ToString("#.00") + "s";
     }
 
     public void Win()
     {
         timer.stopTimer();
         Time.timeScale = 0;
+
+        finalTimeText.text = timer.getTime().ToString("#.00") + "s";
 
         ui.showWinScreen();
     }
@@ -87,6 +95,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("Rooms: ");
         foreach(RoomManager room in usedRooms)
             Debug.Log(room.name);
+
+        curRoomText.text = "Current room: 1/" + numberOfRooms.ToString();
+        ui.displayInGameUI();
 
         Time.timeScale = 1.0f;
         timer.startTimer();
@@ -147,7 +158,18 @@ public class GameManager : MonoBehaviour
         firstRoom = usedRooms[0];
 
         // Spawns finish point
-        Instantiate(finishPrefab, usedRooms[numberOfRooms - 1].transform);
+        Instantiate(finishPrefab, usedRooms[numberOfRooms - 1].getExitPoint().transform);
+    }
+
+    public void NextRoom()
+    {
+        curRoom++;
+        curRoomText.text = "Current room: " + curRoom.ToString() + "/" + numberOfRooms.ToString();
+    }
+
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene(MAIN_MENU);
     }
 
     private float DifficultyFunction(int roomNb)

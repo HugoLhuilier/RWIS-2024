@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(GyroscopeReader))]
@@ -28,6 +29,9 @@ public class PlayerMovesController : MonoBehaviour
 
     void Update()
     {
+        if (!canMove)
+            return;
+
         ProcessInputs();
         Animate();
 
@@ -39,10 +43,12 @@ public class PlayerMovesController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!canMove)
+            return;
+
         Vector2 tilt = gyr.getTilt();
 
-        if (canMove)
-            rb.AddForce(maxForce * tilt);
+        rb.AddForce(maxForce * tilt);
     }
 
     void ProcessInputs()
